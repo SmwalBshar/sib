@@ -1,306 +1,342 @@
 <!DOCTYPE html>
 <html lang="en"> 
 <head>
-	<title>SIB</title>
-	
-	<!-- Meta -->
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="description" content="Profolio Bootstrap 5 Template">
-	<meta name="author" content="Xiaoying Riley at 3rd Wave Media">    
-	<link rel="shortcut icon" href="lo.ico"> 
-	
-	<!-- Google Fonts -->	
-	<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-	
-	<!-- Bootstrpa Icons -->
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
-	
-	<!-- FontAwesome JS -->
-    <script defer src="assets/fontawesome/js/all.js"></script>
+    <title>SIB</title>
+    
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="lo.ico"> 
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
 
-	<!-- Theme CSS -->  
-	<link id="theme-style" rel="stylesheet" href="assets/css/risen.css">
+    <style>
+        :root {
+            --primary-green: #00ff41;
+            --dark-bg: #0d1117;
+            --card-bg: #161b22;
+            --text-main: #c9d1d9;
+            --text-bright: #ffffff;
+            --border-color: #30363d;
+        }
 
+        body {
+            background-color: var(--dark-bg);
+            color: var(--text-main);
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .resume-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 15px;
+        }
+
+        /* --- Profile Header --- */
+        .profile-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 40px 20px;
+            text-align: center;
+            margin-bottom: 25px;
+            margin-top: 10px;
+        }
+
+        .profile-pic {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 3px solid var(--primary-green);
+            margin-bottom: 20px;
+            object-fit: cover;
+            box-shadow: 0 0 20px rgba(0, 255, 65, 0.2);
+        }
+
+        .name { font-size: 1.8rem; font-weight: 800; color: var(--text-bright); margin: 0; text-transform: uppercase; letter-spacing: 1px; word-wrap: break-word; }
+        .role { color: var(--primary-green); font-family: 'Fira Code', monospace; font-size: 1rem; margin: 10px 0 25px 0; }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            font-size: 0.9rem;
+            align-items: center;
+            word-break: break-all;
+        }
+        .contact-info span i { color: var(--primary-green); margin-right: 8px; }
+
+        .social-links { margin: 25px 0; }
+        .social-links a { color: var(--text-main); font-size: 1.7rem; margin: 0 12px; transition: 0.3s ease; display: inline-block; }
+        .social-links a:hover { color: var(--primary-green); transform: translateY(-3px); }
+
+        /* --- General Section Style --- */
+        .section-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 25px;
+            margin-bottom: 25px;
+        }
+
+        .section-title {
+            font-size: 1.2rem;
+            color: var(--text-bright);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 12px;
+            text-transform: uppercase;
+        }
+        .section-title i { color: var(--primary-green); }
+
+        /* --- Experience Section --- */
+        .exp-item { margin-bottom: 30px; padding-left: 15px; border-left: 2px solid var(--primary-green); }
+        .exp-header { display: flex; justify-content: space-between; flex-direction: column; margin-bottom: 10px; gap: 5px; }
+        .exp-title { font-weight: 700; color: var(--text-bright); font-size: 1.05rem; }
+        .exp-company { color: var(--primary-green); font-family: 'Fira Code', monospace; font-size: 0.85rem; }
+        .exp-list { padding-left: 15px; margin-top: 10px; font-size: 0.9rem; color: var(--text-main); }
+        .exp-list li { margin-bottom: 8px; }
+
+        /* --- Tech Stack Section --- */
+        .skill-bar { margin-bottom: 20px; }
+        .skill-info { display: flex; justify-content: space-between; font-size: 0.85rem; margin-bottom: 8px; font-family: 'Fira Code', monospace; }
+        .progress-bg { background: #30363d; height: 8px; border-radius: 10px; overflow: hidden; }
+        .progress-fill { background: var(--primary-green); height: 100%; border-radius: 10px; box-shadow: 0 0 10px rgba(0, 255, 65, 0.5); }
+
+        /* --- Projects Grid --- */
+        .projects-grid { display: grid; grid-template-columns: 1fr; gap: 15px; }
+        .project-card {
+            display: flex;
+            align-items: start;
+            padding: 15px;
+            background: rgba(255,255,255,0.03);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            transition: 0.3s;
+        }
+        .project-card:hover { border-color: var(--primary-green); background: rgba(0, 255, 65, 0.05); }
+        .project-icon { color: var(--primary-green); margin-right: 12px; font-size: 1rem; margin-top: 3px; }
+        .project-title { font-size: 0.95rem; font-weight: 600; color: var(--text-bright); margin: 0 0 5px 0; }
+        .project-title a { color: var(--primary-green); text-decoration: none; }
+        .project-desc { font-size: 0.8rem; color: #8b949e; margin: 0; }
+
+        /* --- Courses & Education --- */
+        .course-item { 
+            background: rgba(255,255,255,0.03); 
+            padding: 12px 15px; 
+            border-radius: 8px; 
+            margin-bottom: 10px; 
+            font-size: 0.85rem; 
+            display: flex; 
+            align-items: center;
+            border-left: 3px solid var(--primary-green);
+            word-break: break-word;
+        }
+        .course-item a { color: var(--text-bright); text-decoration: none; }
+        .course-item a:hover { color: var(--primary-green); }
+
+        /* --- Footer --- */
+        footer { text-align: center; padding: 40px 15px; font-size: 0.8rem; color: #8b949e; border-top: 1px solid var(--border-color); margin-top: 30px; }
+
+        /* --- Media Queries for Responsiveness --- */
+        
+        /* Tablets and Desktop */
+        @media (min-width: 768px) {
+            .resume-container { padding: 30px; }
+            .name { font-size: 2.5rem; }
+            .role { font-size: 1.1rem; }
+            .contact-info { flex-direction: row; justify-content: center; gap: 25px; font-size: 0.95rem; }
+            .projects-grid { grid-template-columns: 1fr 1fr; }
+            .exp-header { flex-direction: row; }
+            .exp-title { font-size: 1.1rem; }
+            .section-title { font-size: 1.3rem; }
+        }
+
+        /* Adjustments for very small screens (iPhone SE, etc) */
+        @media (max-width: 380px) {
+            .name { font-size: 1.5rem; }
+            .section-card { padding: 15px; }
+            .profile-pic { width: 120px; height: 120px; }
+        }
+    </style>
 </head> 
 
-
 <body>
-	
-	<div class="container-fluid">
-			
-			<div class="main-content-wrapper">
-				<div class="container-fluid">
-					<div class="top-bar text-center position-relative">
-						<div class="top-bar-inner">
-							
-					
-							<ul class="social-list list-inline mx-auto">
-								<li class="list-inline-item me-0 me-md-1 me-lg-2"><a href="https://www.facebook.com/smwal.i.bshar" target="_blank"><i class="fa-brands fa-square-facebook fa-fw"></i></a></li>
-								<li class="list-inline-item me-0 me-md-1 me-lg-2"><a href="https://wa.me/201154087910" target="_blank"><i class="fa-brands fa-square-whatsapp fa-fw"></i></a></li>
-								
-								<li class="list-inline-item me-0 me-md-1 me-lg-2"><a href="https://www.instagram.com/smwal_bshar" target="_blank"><i class="fa-brands fa-square-instagram fa-fw"></i></a></li>
-								
-								
-							</ul><!--//social-list-->
-							
-						</div><!--//top-bar-inner-->
-						
-					</div><!--//top-bar-->
-			
-					<div class="resume-wrapper mx-auto rounded-2">
-						<div class="resume-header px-4 px-lg-5">
-							<div class="resume-profile-holder text-center">
-								<img class="resume-profile-pic rounded-circle" src="assets/images/Picsart_25-10-17_22-20-51-454.jpg" alt="image">
-								
-								<h3 class="resume-name text-uppercase">Elsmwal Ismail Bshar</h3>
-								<div class="resume-role-title text-uppercase">IT Administrator</div>
-								<div class="resume-contact mt-4">
-									<ul class="resume-contact-list list-unstyled list-inline mb-0 justify-content-between">
-										<li class="list-inline-item me-md-3 me-lg-5"><i class="resume-contact-icon bi bi-telephone-inbound me-2"></i> +20-1154087910</li>
-										<li class="list-inline-item me-md-3 me-lg-5"><i class="resume-contact-icon bi bi-envelope me-2"></i> elsmwalbshar@gmail.com</li>
-										<li class="list-inline-item me-lg-5"><i class="resume-contact-icon bi bi-globe me-2"></i>smwalbshar.github.io/sib</li>
-									</ul>
-								</div><!--//resume-contact-->
-							</div><!--//profile-holder-->
-						</div><!--//resume-header-->
-						
-						<div class="resume-body p-4 p-lg-5">
-							<div class="row">
-								<div class="col-main col-12 col-lg-8 pe-lg-4">
-									<section class="resume-summary-section resume-section">
-										<h3 class="resume-section-heading text-uppercase py-2 py-lg-3 py-2 py-lg-3"><i class="resume-section-heading-icon bi bi-person me-2"></i>About Me</h3>
-										<div class="resume-summary-desc">
-											I am a qualified and professional web developer with four years of experience in database administration and website design. Strong creative and analytical skills. Team player with an eye for detail.
-										</div>
-									</section><!--//resume-section-->
-									
-									<hr>
-									
-									<section class="resume-experience-section resume-section">
-										<h3 class="resume-section-heading text-uppercase py-2 py-lg-3 py-3"><i class="resume-section-heading-icon bi bi-briefcase me-2"></i>Work Experience</h3>
-										<div class="resume-timeline position-relative">
-										    <article class="resume-timeline-item position-relative pb-5">
-											    
-											    <div class="resume-timeline-item-header mb-2">
-												    
-												    <div class="resume-position-meta d-flex justify-content-between mb-1">
-													    <div class="resume-position-time">2019 - 2022</div>
-													    <div class="resume-company-name">MBT Company</div>
-												    </div>
-											        <h3 class="resume-position-title mb-1">CTO Assistant</h3>
 
-											    </div><!--//resume-timeline-item-header-->
-											    <div class="resume-timeline-item-desc">
-												 
-												   
-												    <ul class="resume-timeline-list">
-													    <li>Programming the programs required to meet the wishes of officials, analyzing and developing the requirements of computer systems to meet work requirements, programming the auxiliary programs required to meet the wishes of officials, testing the systems accurately to ensure their success and free from any problems that hinder users, adapting the systems to keep pace with work flow and its various requirements, recording and saving copies of files The computer to avoid the loss of information in the event of any defect in the software or hardware, on a daily basis and before making any modifications to the files in accordance with the directives of the senior management.
-														</li>
-													   
-												    </ul>
-												    
-											    </div><!--//resume-timeline-item-desc-->
-		
-										    </article><!--//resume-timeline-item-->
-								    
-										    <article class="resume-timeline-item position-relative pb-5">
+<div class="resume-container">
+    
+    <header class="profile-card">
+        <img class="profile-pic" src="assets/images/SIB.jpeg" alt="Elsmwal Ismail Bshar">
+        <h1 class="name">Elsmwal Ismail Bshar</h1>
+        <div class="role">IT Administrator | Ethical Hacker Researcher</div>
+        
+        <div class="contact-info">
+            <span><i class="bi bi-envelope-fill"></i> elsmwalbshar@gmail.com</span>
+            <span><i class="bi bi-telephone-fill"></i> +20-1154087910</span>
+        </div>
 
-											    <div class="resume-timeline-item-header mb-2">
-												    
-												    <div class="resume-position-meta d-flex justify-content-between mb-1">
-													    <div class="resume-position-time">2022 - Praesent</div>
-													    <div class="resume-company-name">Mashreq University
-														</div>
-												    </div>
-											        <h3 class="resume-position-title mb-1">Technical support & Help desk Employee</h3>
+        <div class="social-links">
+            <a href="https://www.facebook.com/smwal.i.bshar" target="_blank"><i class="fa-brands fa-facebook"></i></a>
+            <a href="https://wa.me/201154087910" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
+        </div>
+    </header>
 
-											    </div><!--//resume-timeline-item-header-->
-											    <div class="resume-timeline-item-desc">
-												    <ul class="resume-timeline-list">
-													    
-													    <li>Finding appropriate solutions to any dilemma related to computer systems in the computer center, updating ancl developing programs and devices in order to match modern developments in the academic courses, technicians using devices and information networks so that the maximum benefit from these features, programming programs required to meet the desires of officials, secure periodic and emergency maintenance operations for the network Computer computer center and follow -up, according to what is programmed.</li>
-													    </ul>
-												    
-											    </div><!--//resume-timeline-item-desc-->
-		
-										    </article><!--//resume-timeline-item-->
-										    
-								<div class="col-12 col-lg-4 ps-lg-4">
-									
-									<section class="resume-skills-section resume-section">
-										<h3 class="resume-section-heading text-uppercase py-2 py-lg-3 py-3"><i class="resume-section-heading-icon bi bi-gear me-2"></i>Tech Stack</h3>
-										
-										<ul class="list-unstyled">
-								        <li class="mb-2">
-										<li class="mb-2">
-												<div class="resume-skill-name">Networks</div>
-												<div class="progress resume-progress" role="progressbar" aria-label="Basic example" aria-valuenow="86" aria-valuemin="0" aria-valuemax="100">
-												  <div class="progress-bar resume-progress-bar" style="width: 86%"></div>
-												</div>
-											</li>
-								            <div class="resume-skill-name">PHP</div>
-											<div class="progress resume-progress" role="progressbar" aria-label="Basic example" aria-valuenow="98" aria-valuemin="0" aria-valuemax="100">
-											  <div class="progress-bar resume-progress-bar" style="width: 98%"></div>
-											</div>
-								        </li>
-								        <li class="mb-2">
-								            <div class="resume-skill-name">SQL</div>
-								            <div class="progress resume-progress" role="progressbar" aria-label="Basic example" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100">
-											  <div class="progress-bar resume-progress-bar" style="width: 95%"></div>
-											</div>
-									        
-								        </li>
-								        <li class="mb-2">
-								            <div class="resume-skill-name">Python</div>
-									        <div class="progress resume-progress" role="progressbar" aria-label="Basic example" aria-valuenow="92" aria-valuemin="0" aria-valuemax="100">
-											  <div class="progress-bar resume-progress-bar" style="width: 92%"></div>
-											</div>
-								        </li>
-								        <li class="mb-2">
-								            <div class="resume-skill-name">ReactJS</div>
-									        <div class="progress resume-progress" role="progressbar" aria-label="Basic example" aria-valuenow="86" aria-valuemin="0" aria-valuemax="100">
-											  <div class="progress-bar resume-progress-bar" style="width: 86%"></div>
-											</div>
-								        </li>
+    <section class="section-card">
+        <h3 class="section-title"><i class="bi bi-person-fill"></i> About Me</h3>
+        <p style="font-size: 0.95rem; line-height: 1.8; color: var(--text-main);">
+            IT Specialist and Software Developer with hands-on experience in network administration and web development. 
+            I excel at aligning technical solutions with organizational goals, whether through developing custom systems 
+            or securing digital infrastructure. Holding a Bachelor’s degree in Information Technology and several global 
+            <strong>Cisco cybersecurity certifications</strong>, I am currently a Master’s researcher in 
+            <strong>Ethical Hacking</strong>. This academic focus provides me with a deep security-driven perspective 
+            in building robust, vulnerability-resistant software.
+        </p>
+    </section>
 
-							        </ul>
-										
-									</section><!--//resume-section-->
-									
-									<hr>
-									
-									<section class="resume-skills-section resume-section">
-										<h3 class="resume-section-heading text-uppercase py-2 py-lg-3 py-3"><i class="resume-section-heading-icon bi bi-person-gear me-2"></i>Soft Skills</h3>
-										<ul class="list-inline">
-								            <li class="list-inline-item"><span class="badge resume-skill-badge">Leadership</span></li>
-								            <li class="list-inline-item"><span class="badge resume-skill-badge">Project Management</span></li>
-								            
-								            <li class="list-inline-item"><span class="badge resume-skill-badge">DevOps</span></li>
-								            <li class="list-inline-item"><span class="badge resume-skill-badge">Public Speaking</span></li>
-								            
-								            				           
-							            </ul>
-									</section><!--//resume-section-->
-									
-									<hr>
-									
-									<section class="resume-projects-section resume-section">
-										<h3 class="resume-section-heading text-uppercase py-2 py-lg-3 py-3"><i class="resume-section-heading-icon bi bi-code-slash me-2"></i>Projects</h3>
-										<div class="item">
-											<h4 class="item-heading"><i class="item-icon bi bi-square-fill me-2"></i>MBT Company website</h4>
-										<div class="item">
-											<h4 class="item-heading"><i class="item-icon bi bi-square-fill me-2"></i>Health Tech System</h4>
-										  	<h4 class="item-heading"><i class="item-icon bi bi-square-fill me-2"></i>Magalira Store</h4>
-											<h4 class="item-heading"><i class="item-icon bi bi-square-fill me-2"></i> <a href="https://darbeauty.com/" target="_blank">Darbeauty Store</a></h4>
-											
-											<h4 class="item-heading"><i class="item-icon bi bi-square-fill me-2"></i>Al-Yaqouta Pharmacy Management and Monitoring system</h4>
+    <section class="section-card">
+        <h3 class="section-title"><i class="bi bi-briefcase-fill"></i> Work Experience</h3>
+        
+        <div class="exp-item">
+            <div class="exp-header">
+                <span class="exp-title">Technical Support & Help Desk Employee</span>
+                <span class="exp-company">Mashreq University | 2022 - Present</span>
+            </div>
+            <ul class="exp-list">
+                <li>Finding appropriate solutions to any dilemma related to computer systems in the computer center.</li>
+                <li>Updating and developing programs and devices to match modern developments in academic courses.</li>
+                <li>Training technicians on devices and information networks to maximize efficiency.</li>
+                <li>Programming required applications to meet the specific requirements of officials.</li>
+                <li>Securing periodic and emergency maintenance operations for the university network.</li>
+            </ul>
+        </div>
+        
 
-									
-											
-									</section>
-									
-									<hr>
-									
-									<section class="resume-educate-section resume-section">
-										<h3 class="resume-section-heading text-uppercase py-2 py-lg-3 py-3"><i class="resume-section-heading-icon bi bi-book me-2"></i>Education</h3>
-										<ul class="list-unstyled">
-										    <li class="mb-2">
-										        <div class="resume-degree font-weight-bold">Bachelor in Information Technology</div>
-										        <div class="resume-degree-org">Mashreq University</div>
-										        <div class="resume-degree-time">2017 - 2022</div>
-										    </li>
-									    </ul>
-									</section><!--//resume-section-->
-									<hr>
-									
-									<section class="resume-educate-section resume-section">
-										<h3 class="resume-section-heading text-uppercase py-2 py-lg-3 py-3"><i class="resume-section-heading-icon bi bi-book me-2"></i>COURSES</h3>
-										<ul class="list-unstyled">
-										    <li class="mb-2">
-										        <div class="resume-degree font-weight-bold"></div>
-												<div class="resume-degree font-weight-bold"></div>
-										        <div class="resume-degree font-weight-bold"></div>
-										        <div class="resume-degree font-weight-bold"></div>
-										        <div class="resume-degree font-weight-bold"></div>
-												<div class="resume-degree font-weight-bold"></div>
-												<div class="item">
-													<h4 class="resume-degree font-weight-bold"><i class="item-icon bi bi-square-fill me-2"></i><a href="https://www.credly.com/badges/07a7435d-313c-4403-a557-bd3f82de9095" target="_blank" style="color: whitesmoke; text-decoration: none;">CCNA v7 Introduction to Network</a></h4><p>
-													<h4 class="resume-degree font-weight-bold"><i class="item-icon bi bi-square-fill me-2"></i><a href="https://www.credly.com/badges/7da85a8c-34ad-468f-aa70-cf6c76c5dd01" target="_blank" style="color: whitesmoke; text-decoration: none;">Introduction to Cybersecurity</a></h4><p>
-													<h4 class="resume-degree font-weight-bold"><i class="item-icon bi bi-square-fill me-2"></i><a href="https://www.credly.com/badges/065bbf61-87f4-4bfb-9a15-f61711ca22eb" target="_blank" style="color: whitesmoke; text-decoration: none;">Cyber Threat Management</a></h4><p>
-													<h4 class="resume-degree font-weight-bold"><i class="item-icon bi bi-square-fill me-2"></i><a href="https://www.credly.com/badges/259be027-4a52-446b-adfe-f8e164599f62" target="_blank" style="color: whitesmoke; text-decoration: none;">Endpoint Security</a></h4><p>
-													<h4 class="resume-degree font-weight-bold"><i class="item-icon bi bi-square-fill me-2"></i><a href="https://www.credly.com/badges/a3645cc0-dc4a-4034-abfa-a0baa60946c4" target="_blank" style="color: whitesmoke; text-decoration: none;">Ethical Hacker</a></h4><p>
-													<h4 class="resume-degree font-weight-bold"><i class="item-icon bi bi-square-fill me-2"></i><a href="https://www.credly.com/badges/b38f38cc-f8b4-45a0-9517-48ca525b34f6" target="_blank" style="color: whitesmoke; text-decoration: none;">Introduction to Data Science</a></h4><p>
+        <div class="exp-item">
+            <div class="exp-header">
+                <span class="exp-title">CTO Assistant</span>
+                <span class="exp-company">MBT Company | 2019 - 2022</span>
+            </div>
+            <ul class="exp-list">
+                <li>Analyzing and developing requirements of computer systems to meet business goals.</li>
+                <li>Programming auxiliary applications to facilitate management wishes.</li>
+                <li>Conducting rigorous system testing to ensure zero-defect user experiences.</li>
+                <li>Adapting legacy systems to keep pace with modern workflow requirements.</li>
+                <li>Managing daily database backups and protecting files against hardware/software failures.</li>
+            </ul>
+        </div>
+    </section>
 
-										    </li>
-									    </ul>
-									</section><!--//resume-section-->
-									
-									<hr>
-									
-									<section class="resume-lang-section resume-section">
-										<h3 class="resume-section-heading text-uppercase py-2 py-lg-3 py-3"><i class="resume-section-heading-icon bi bi-translate me-2"></i>Languages</h3>
-										 <ul class="list-unstyled resume-lang-list">
-										    <li class="mb-2">
-										        <div class="resume-lang-name">Arabic</div>
-										        <div class="resume-level-indicator row gx-0 flex-nowrap">
-											        <div class="col"><span class="item item-full"></span></div>
-											        <div class="col"><span class="item item-full"></span></div>
-											        <div class="col"><span class="item item-full"></span></div>
-											        <div class="col"><span class="item item-full"></span></div>
-											        <div class="col"><span class="item item-full"></span></div>
-											        <div class="col"><span class="item item-full"></span></div>
-											        <div class="col"><span class="item item-full"></span></div>
-											        <div class="col"><span class="item item-full"></span></div>
-											        <div class="col"><span class="item item-full"></span></div>
-											        <div class="col"><span class="item item-half"></span></div>
-										        </div><!--//resume-level-indicator-->
-										    </li>
-										     <li class="mb-2">
-										        <div class="resume-lang-name">English</div>
-										        <div class="resume-level-indicator row gx-0 flex-nowrap">
-											        <div class="col"><span class="item item-full"></span></div>
-											        <div class="col"><span class="item item-full"></span></div>
-											        <div class="col"><span class="item item-full"></span></div>
-											        <div class="col"><span class="item item-full"></span></div>
-											        <div class="col"><span class="item item-full"></span></div>
-											        <div class="col"><span class="item item-full"></span></div>
-											        <div class="col"><span class="item item-full"></span></div>
-											        <div class="col"><span class="item item-full"></span></div>
-											        <div class="col"><span class="item item-half"></span></div>
-											        <div class="col"><span class="item"></span></div>
-										        </div><!--//resume-level-indicator-->
-										    </li>
-										</ul>
-									</section>
-									
-									
-									
-								</div><!--//col-side-->
-							</div><!--//row-->
-					    </div><!--//resume-body-->
-				    </div><!--//resume-wrapper-->
-				</div><!--//container-fluid-->
-			</div><!--//main-content-wrapper-->
-			<div class="resume-contact mt-4">
-				<ul class="resume-contact-list list-unstyled list-inline mb-0 justify-content-between">
-				<center>
-					<li class="list-inline-item me-md-3 me-lg-5"><i class="resume-contact-icon bi bi-envelope me-2"></i><a href="mailto:eng.sib.mu@gmail.com?subject=Inquiry about your site&body= " style="color: whitesmoke; text-decoration: none;">Send Email for more information</a>
-						
-						</li>
-				</center>
-				</ul>
-			</div><!--//-EMAIL-->
-		
-		</div><!--//row-->
-	
-	</div><!--//container-->
-	
-	<footer class="footer text-center py-4">
-		<!--/* This template is free as long as you keep the footer attribution link. If you'd like to use the template without the attribution link, you can buy the commercial license via our website: themes.3rdwavemedia.com Thank you for your support. :) */-->
-		<small class="copyright">Copyright©2024 by SIB </small>
-	</footer>
+    <section class="section-card">
+        <h3 class="section-title"><i class="bi bi-cpu-fill"></i> Tech Stack</h3>
+        <div class="skill-bar">
+            <div class="skill-info"><span>Networks (Cisco / Mikrotik)</span><span>86%</span></div>
+            <div class="progress-bg"><div class="progress-fill" style="width: 86%"></div></div>
+        </div>
+        <div class="skill-bar">
+            <div class="skill-info"><span>PHP / Laravel</span><span>98%</span></div>
+            <div class="progress-bg"><div class="progress-fill" style="width: 98%"></div></div>
+        </div>
+        <div class="skill-bar">
+            <div class="skill-info"><span>SQL Database Design</span><span>95%</span></div>
+            <div class="progress-bg"><div class="progress-fill" style="width: 95%"></div></div>
+        </div>
+        <div class="skill-bar">
+            <div class="skill-info"><span>Python (Ethical Hacking Scripts)</span><span>92%</span></div>
+            <div class="progress-bg"><div class="progress-fill" style="width: 92%"></div></div>
+        </div>
+        <div class="skill-bar">
+            <div class="skill-info"><span>ReactJS</span><span>86%</span></div>
+            <div class="progress-bg"><div class="progress-fill" style="width: 86%"></div></div>
+        </div>
+    </section>
+
+    <section class="section-card">
+        <h3 class="section-title"><i class="bi bi-code-square"></i> Selected Projects</h3>
+         <div class="project-card">
+                <i class="project-icon bi bi-square-fill"></i>
+                <div>
+                    <h4 class="project-title">Health Tech System</h4>
+                    <p class="project-desc">An integrated and comprehensive management system for all departments of the Mohammed Saleh Idris Center (Al-Sahafa - Khartoum).</p>
+                </div>
+            </div>
+            
+        <div class="projects-grid">
+            <div class="project-card">
+                <i class="project-icon bi bi-square-fill"></i>
+                <div>
+                    <h4 class="project-title">Medical Lab Management</h4>
+                    <p class="project-desc">Full system for laboratory workflows and patient reporting.</p>
+                </div>
+            </div>
+            <div class="project-card">
+                <i class="project-icon bi bi-square-fill"></i>
+                <div>
+                    <h4 class="project-title"><a href="https://darbeauty.com/" target="_blank">Darbeauty Store <i class="bi bi-box-arrow-up-right ms-1" style="font-size: 0.7rem;"></i></a></h4>
+                    <p class="project-desc">Secure e-commerce platform for beauty products.</p>
+                </div>
+            </div>
+            <div class="project-card">
+                <i class="project-icon bi bi-square-fill"></i>
+                <div>
+                    <h4 class="project-title">Charity ERP System</h4>
+                    <p class="project-desc">Custom ERP for managing NGO resources and donations.</p>
+                </div>
+            </div>
+            <div class="project-card">
+                <i class="project-icon bi bi-square-fill"></i>
+                <div>
+                    <h4 class="project-title">Al-Yaqouta Pharmacy System</h4>
+                    <p class="project-desc">Inventory and sales monitoring for pharmacies.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div style="display: grid; grid-template-columns: 1fr; gap: 10px;">
+        <section class="section-card">
+            <h3 class="section-title"><i class="bi bi-patch-check-fill"></i> Professional Certifications</h3>
+            <div class="course-item"><i class="bi bi-award-fill me-2" style="color:var(--primary-green)"></i><a href="https://www.credly.com/badges/07a7435d-313c-4403-a557-bd3f82de9095" target="_blank">CCNA v7: Introduction to Networks (Cisco)<i class="bi bi-box-arrow-up-right ms-1" style="font-size: 0.7rem;"></i></a></div>
+            <div class="course-item"><i class="bi bi-award-fill me-2" style="color:var(--primary-green)"></i><a href="https://www.credly.com/badges/7da85a8c-34ad-468f-aa70-cf6c76c5dd01" target="_blank">Introduction to Cybersecurity (Cisco)<i class="bi bi-box-arrow-up-right ms-1" style="font-size: 0.7rem;"></i></a></div>
+            <div class="course-item"><i class="bi bi-award-fill me-2" style="color:var(--primary-green)"></i><a href="https://www.credly.com/badges/065bbf61-87f4-4bfb-9a15-f61711ca22eb" target="_blank">Cyber Threat Management (Cisco)<i class="bi bi-box-arrow-up-right ms-1" style="font-size: 0.7rem;"></i></a></div>
+            <div class="course-item"><i class="bi bi-award-fill me-2" style="color:var(--primary-green)"></i><a href="https://www.credly.com/badges/a3645cc0-dc4a-4034-abfa-a0baa60946c4" target="_blank">Certified Ethical Hacker (Research focus)<i class="bi bi-box-arrow-up-right ms-1" style="font-size: 0.7rem;"></i></a></div>
+         <div class="project-card">
+                <i class="project-icon bi bi-square-fill"></i>
+                <div>
+                    <h4 class="project-title"><a href="https://www.credly.com/users/elsmwal-bshar" target="_blank">Cisco Badges <i class="bi bi-box-arrow-up-right ms-1" style="font-size: 0.7rem;"></i></a></h4>
+                    <p class="project-desc">To see all the badges, please visit my Credly wallet.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-card">
+            <h3 class="section-title"><i class="bi bi-book-fill"></i> Education</h3>
+            <div style="padding-left: 10px;">
+                <h4 style="color: var(--text-bright); margin-bottom: 5px;">Bachelor in Information Technology</h4>
+                <p style="color: var(--primary-green); margin: 0; font-size: 0.9rem;">Mashreq University</p>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>Copyright &copy; 2026 | Elsmwal Ismail Bshar (SIB)</p>
+        <p style="color: var(--primary-green); font-family: 'Fira Code'; font-size: 0.8rem; margin-top: 10px;">
+            <i class="bi bi-shield-lock-fill me-1"></i> SECURE_CONNECTION_ESTABLISHED
+        </p>
+    </footer>
+
+</div>
 
 </body>
+</html>
